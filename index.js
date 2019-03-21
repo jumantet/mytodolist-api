@@ -68,7 +68,7 @@ app.post("/messages", isAuthenticated, async (req, res) => {
       who: req.user,
       readers: [req.user],
       message: req.body.message,
-      date: format(new Date(), "dddd HH:mm", { locale: fr })
+      date: format(new Date(), "dddd HH:mm:ss", { locale: fr })
     });
     io.emit("message", req.body.message);
     await message.save();
